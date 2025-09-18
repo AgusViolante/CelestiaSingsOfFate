@@ -1,0 +1,29 @@
+{
+	"version": 1,
+	"changelists": [
+		{
+			"guid": "00000000000000000000000000000000",
+			"description": "Default Uncontrolled Changelist",
+			"files": [
+				"C:/Users/violanteagus/Desktop/Githubs/CelestiaSingsOfFate/CelestiaSingsOfFate/Content/Blueprints/ItemBase/BP_ItemBase.uasset",
+				"C:/Users/violanteagus/Desktop/Githubs/CelestiaSingsOfFate/CelestiaSingsOfFate/Content/__ExternalActors__/ThirdPerson/Lvl_ThirdPerson/0/AF/MT0YJXDNUH6EZH1WTPBX4Y.uasset",
+				"C:/Users/violanteagus/Desktop/Githubs/CelestiaSingsOfFate/CelestiaSingsOfFate/Content/Blueprints/Items/BP_ICoin.uasset",
+				"C:/Users/violanteagus/Desktop/Githubs/CelestiaSingsOfFate/CelestiaSingsOfFate/Content/__ExternalActors__/ThirdPerson/Lvl_ThirdPerson/F/3P/XC5QOQ4M2FOMF7ALG7WQUY.uasset",
+				"C:/Users/violanteagus/Desktop/Githubs/CelestiaSingsOfFate/CelestiaSingsOfFate/Content/Assets/Pickaxe/lowpoly_pickaxe.uasset",
+				"C:/Users/violanteagus/Desktop/Githubs/CelestiaSingsOfFate/CelestiaSingsOfFate/Content/Assets/Pickaxe/lowpoly_pickaxe_PhysicsAsset.uasset",
+				"C:/Users/violanteagus/Desktop/Githubs/CelestiaSingsOfFate/CelestiaSingsOfFate/Content/Assets/Pickaxe/lowpoly_pickaxe_Skeleton.uasset",
+				"C:/Users/violanteagus/Desktop/Githubs/CelestiaSingsOfFate/CelestiaSingsOfFate/Content/Assets/Pickaxe/Metal.uasset",
+				"C:/Users/violanteagus/Desktop/Githubs/CelestiaSingsOfFate/CelestiaSingsOfFate/Content/Assets/Pickaxe/Wood.uasset",
+				"C:/Users/violanteagus/Desktop/Githubs/CelestiaSingsOfFate/CelestiaSingsOfFate/Content/Blueprints/Items/BP_IAxe.uasset",
+				"C:/Users/violanteagus/Desktop/Githubs/CelestiaSingsOfFate/CelestiaSingsOfFate/Content/Blueprints/Items/BP_IPickaxe.uasset",
+				"C:/Users/violanteagus/Desktop/Githubs/CelestiaSingsOfFate/CelestiaSingsOfFate/Content/Pickaxe/S_lowpoly_pickaxe_Skeleton.uasset",
+				"C:/Users/violanteagus/Desktop/Githubs/CelestiaSingsOfFate/CelestiaSingsOfFate/Content/Pickaxe/SKM_lowpoly_pickaxe.uasset",
+				"C:/Users/violanteagus/Desktop/Githubs/CelestiaSingsOfFate/CelestiaSingsOfFate/Content/Pickaxe/PA_lowpoly_pickaxe_PhysicsAsset.uasset",
+				"C:/Users/violanteagus/Desktop/Githubs/CelestiaSingsOfFate/CelestiaSingsOfFate/Content/Pickaxe/M_Wood.uasset",
+				"C:/Users/violanteagus/Desktop/Githubs/CelestiaSingsOfFate/CelestiaSingsOfFate/Content/Pickaxe/M_Metal.uasset",
+				"C:/Users/violanteagus/Desktop/Githubs/CelestiaSingsOfFate/CelestiaSingsOfFate/Content/Blueprints/Items/BP_IMoneda.uasset",
+				"C:/Users/violanteagus/Desktop/Githubs/CelestiaSingsOfFate/CelestiaSingsOfFate/Content/__ExternalActors__/ThirdPerson/Lvl_ThirdPerson/1/6V/57TQJMUB4NS81PA6QL9TYN.uasset"
+			]
+		}
+	]
+}

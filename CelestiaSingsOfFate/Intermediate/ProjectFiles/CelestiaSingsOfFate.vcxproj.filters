@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\CelestiaSingsOfFate.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\CelestiaSingsOfFate.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\CelestiaSingsOfFateEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\.vsconfig" />
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\CelestiaSingsOfFate">
+      <UniqueIdentifier>{2390A400-CC40-37E1-B77B-E5F1DED50583}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\CelestiaSingsOfFate\CelestiaSingsOfFate.Build.cs">
+      <Filter>Source\CelestiaSingsOfFate</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\CelestiaSingsOfFate.cpp">
+      <Filter>Source\CelestiaSingsOfFate</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\CelestiaSingsOfFate.h">
+      <Filter>Source\CelestiaSingsOfFate</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\CelestiaSingsOfFateCharacter.cpp">
+      <Filter>Source\CelestiaSingsOfFate</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\CelestiaSingsOfFateCharacter.h">
+      <Filter>Source\CelestiaSingsOfFate</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\CelestiaSingsOfFateGameMode.cpp">
+      <Filter>Source\CelestiaSingsOfFate</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\CelestiaSingsOfFateGameMode.h">
+      <Filter>Source\CelestiaSingsOfFate</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\CelestiaSingsOfFatePlayerController.cpp">
+      <Filter>Source\CelestiaSingsOfFate</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\CelestiaSingsOfFatePlayerController.h">
+      <Filter>Source\CelestiaSingsOfFate</Filter>
+    </ClInclude>
+    <Filter Include="Source\CelestiaSingsOfFate\Private">
+      <UniqueIdentifier>{D7269DE3-0D07-3BB7-8AB4-E6888E43BB1A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\CelestiaSingsOfFate\Private\Interfaces">
+      <UniqueIdentifier>{DE8A34D7-A8D3-370C-B7DC-0AF09412AAAE}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Private\Interfaces\I_PickUp.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Private\Interfaces</Filter>
+    </ClCompile>
+    <Filter Include="Source\CelestiaSingsOfFate\Private\ItemBase">
+      <UniqueIdentifier>{15EE336F-F361-3655-A8DA-68E0845B58A6}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Private\ItemBase\ICoin.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Private\ItemBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Private\ItemBase\ItemBase.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Private\ItemBase</Filter>
+    </ClCompile>
+    <Filter Include="Source\CelestiaSingsOfFate\Public">
+      <UniqueIdentifier>{EBC9135A-8985-3046-AF1B-BFE3542AB3BD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\CelestiaSingsOfFate\Public\Interfaces">
+      <UniqueIdentifier>{2948868F-4CF9-3139-A145-41B62E5DD14F}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Public\Interfaces\I_PickUp.h">
+      <Filter>Source\CelestiaSingsOfFate\Public\Interfaces</Filter>
+    </ClInclude>
+    <Filter Include="Source\CelestiaSingsOfFate\Public\ItemBase">
+      <UniqueIdentifier>{E10CE643-2960-3EA3-95BA-FF3D7B3B4A70}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Public\ItemBase\ICoin.h">
+      <Filter>Source\CelestiaSingsOfFate\Public\ItemBase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Public\ItemBase\ItemBase.h">
+      <Filter>Source\CelestiaSingsOfFate\Public\ItemBase</Filter>
+    </ClInclude>
+    <Filter Include="Source\CelestiaSingsOfFate\Variant_Combat">
+      <UniqueIdentifier>{4C7E7BB9-6414-3E05-AC71-817777FC5AA2}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\CombatCharacter.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\CombatCharacter.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\CombatGameMode.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\CombatGameMode.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\CombatPlayerController.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\CombatPlayerController.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat</Filter>
+    </ClInclude>
+    <Filter Include="Source\CelestiaSingsOfFate\Variant_Combat\AI">
+      <UniqueIdentifier>{C7B93AA2-70F9-3B31-AC93-46865BD99250}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\AI\CombatAIController.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\AI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\AI\CombatAIController.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\AI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\AI\CombatEnemy.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\AI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\AI\CombatEnemy.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\AI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\AI\CombatEnemySpawner.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\AI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\AI\CombatEnemySpawner.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\AI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\AI\CombatStateTreeUtility.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\AI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\AI\CombatStateTreeUtility.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\AI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\AI\EnvQueryContext_Player.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\AI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\AI\EnvQueryContext_Player.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\AI</Filter>
+    </ClInclude>
+    <Filter Include="Source\CelestiaSingsOfFate\Variant_Combat\Animation">
+      <UniqueIdentifier>{88639B52-401D-3AD9-92BE-1B0BE1A35A9C}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\Animation\AnimNotify_CheckChargedAttack.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\Animation</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\Animation\AnimNotify_CheckChargedAttack.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\Animation</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\Animation\AnimNotify_CheckCombo.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\Animation</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\Animation\AnimNotify_CheckCombo.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\Animation</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\Animation\AnimNotify_DoAttackTrace.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\Animation</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\Animation\AnimNotify_DoAttackTrace.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\Animation</Filter>
+    </ClInclude>
+    <Filter Include="Source\CelestiaSingsOfFate\Variant_Combat\Gameplay">
+      <UniqueIdentifier>{22B54A3D-13AE-3C79-96FB-33ACCF22DD9E}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\Gameplay\CombatActivationVolume.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\Gameplay</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\Gameplay\CombatActivationVolume.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\Gameplay</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\Gameplay\CombatCheckpointVolume.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\Gameplay</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\Gameplay\CombatCheckpointVolume.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\Gameplay</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\Gameplay\CombatDamageableBox.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\Gameplay</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\Gameplay\CombatDamageableBox.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\Gameplay</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\Gameplay\CombatDummy.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\Gameplay</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\Gameplay\CombatDummy.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\Gameplay</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\Gameplay\CombatLavaFloor.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\Gameplay</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\Gameplay\CombatLavaFloor.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\Gameplay</Filter>
+    </ClInclude>
+    <Filter Include="Source\CelestiaSingsOfFate\Variant_Combat\Interfaces">
+      <UniqueIdentifier>{32FB8D40-67CB-3688-895B-54BDEFE42DB7}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\Interfaces\CombatActivatable.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\Interfaces</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\Interfaces\CombatActivatable.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\Interfaces</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\Interfaces\CombatAttacker.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\Interfaces</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\Interfaces\CombatAttacker.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\Interfaces</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\Interfaces\CombatDamageable.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\Interfaces</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\Interfaces\CombatDamageable.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\Interfaces</Filter>
+    </ClInclude>
+    <Filter Include="Source\CelestiaSingsOfFate\Variant_Combat\UI">
+      <UniqueIdentifier>{FE8D3196-31A1-32EA-88CA-6AAB46643F44}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\UI\CombatLifeBar.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_Combat\UI\CombatLifeBar.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Combat\UI</Filter>
+    </ClInclude>
+    <Filter Include="Source\CelestiaSingsOfFate\Variant_Platforming">
+      <UniqueIdentifier>{336480D4-E45B-3A0A-A165-2EBA2B76F950}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_Platforming\PlatformingCharacter.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Platforming</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_Platforming\PlatformingCharacter.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Platforming</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_Platforming\PlatformingGameMode.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Platforming</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_Platforming\PlatformingGameMode.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Platforming</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_Platforming\PlatformingPlayerController.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Platforming</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_Platforming\PlatformingPlayerController.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Platforming</Filter>
+    </ClInclude>
+    <Filter Include="Source\CelestiaSingsOfFate\Variant_Platforming\Animation">
+      <UniqueIdentifier>{D7577B4F-DFAD-337D-A97B-E311E6470CBB}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_Platforming\Animation\AnimNotify_EndDash.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Platforming\Animation</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_Platforming\Animation\AnimNotify_EndDash.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_Platforming\Animation</Filter>
+    </ClInclude>
+    <Filter Include="Source\CelestiaSingsOfFate\Variant_SideScrolling">
+      <UniqueIdentifier>{215B4B75-5510-3053-A467-2C7FF4646A4A}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_SideScrolling\SideScrollingCameraManager.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_SideScrolling</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_SideScrolling\SideScrollingCameraManager.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_SideScrolling</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_SideScrolling\SideScrollingCharacter.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_SideScrolling</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_SideScrolling\SideScrollingCharacter.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_SideScrolling</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_SideScrolling\SideScrollingGameMode.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_SideScrolling</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_SideScrolling\SideScrollingGameMode.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_SideScrolling</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_SideScrolling\SideScrollingPlayerController.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_SideScrolling</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_SideScrolling\SideScrollingPlayerController.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_SideScrolling</Filter>
+    </ClInclude>
+    <Filter Include="Source\CelestiaSingsOfFate\Variant_SideScrolling\AI">
+      <UniqueIdentifier>{D96D9388-7E67-3B2D-BA8F-326C764B8F98}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_SideScrolling\AI\SideScrollingAIController.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_SideScrolling\AI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_SideScrolling\AI\SideScrollingAIController.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_SideScrolling\AI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_SideScrolling\AI\SideScrollingNPC.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_SideScrolling\AI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_SideScrolling\AI\SideScrollingNPC.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_SideScrolling\AI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_SideScrolling\AI\SideScrollingStateTreeUtility.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_SideScrolling\AI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_SideScrolling\AI\SideScrollingStateTreeUtility.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_SideScrolling\AI</Filter>
+    </ClInclude>
+    <Filter Include="Source\CelestiaSingsOfFate\Variant_SideScrolling\Gameplay">
+      <UniqueIdentifier>{858D7B9A-C8DF-3F60-9E9D-B3A43A1B1C49}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_SideScrolling\Gameplay\SideScrollingJumpPad.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_SideScrolling\Gameplay</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_SideScrolling\Gameplay\SideScrollingJumpPad.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_SideScrolling\Gameplay</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_SideScrolling\Gameplay\SideScrollingMovingPlatform.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_SideScrolling\Gameplay</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_SideScrolling\Gameplay\SideScrollingMovingPlatform.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_SideScrolling\Gameplay</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_SideScrolling\Gameplay\SideScrollingPickup.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_SideScrolling\Gameplay</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_SideScrolling\Gameplay\SideScrollingPickup.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_SideScrolling\Gameplay</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_SideScrolling\Gameplay\SideScrollingSoftPlatform.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_SideScrolling\Gameplay</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_SideScrolling\Gameplay\SideScrollingSoftPlatform.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_SideScrolling\Gameplay</Filter>
+    </ClInclude>
+    <Filter Include="Source\CelestiaSingsOfFate\Variant_SideScrolling\Interfaces">
+      <UniqueIdentifier>{4C95B0F8-DEF8-354F-91E5-50AF0219432E}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_SideScrolling\Interfaces\SideScrollingInteractable.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_SideScrolling\Interfaces</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_SideScrolling\Interfaces\SideScrollingInteractable.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_SideScrolling\Interfaces</Filter>
+    </ClInclude>
+    <Filter Include="Source\CelestiaSingsOfFate\Variant_SideScrolling\UI">
+      <UniqueIdentifier>{131615E8-986D-3A87-877E-283C703BDD49}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\CelestiaSingsOfFate\Variant_SideScrolling\UI\SideScrollingUI.cpp">
+      <Filter>Source\CelestiaSingsOfFate\Variant_SideScrolling\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CelestiaSingsOfFate\Variant_SideScrolling\UI\SideScrollingUI.h">
+      <Filter>Source\CelestiaSingsOfFate\Variant_SideScrolling\UI</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

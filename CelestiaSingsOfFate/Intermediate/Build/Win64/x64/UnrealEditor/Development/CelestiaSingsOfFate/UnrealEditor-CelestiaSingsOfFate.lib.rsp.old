@@ -1,0 +1,13 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-CelestiaSingsOfFate.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:/Users/violanteagus/Desktop/Githubs/CelestiaSingsOfFate/CelestiaSingsOfFate/Intermediate/Build/Win64/x64/CelestiaSingsOfFateEditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.h.obj"
+"C:/Users/violanteagus/Desktop/Githubs/CelestiaSingsOfFate/CelestiaSingsOfFate/Intermediate/Build/Win64/x64/UnrealEditor/Development/CelestiaSingsOfFate/Module.CelestiaSingsOfFate.1.cpp.obj"
+"C:/Users/violanteagus/Desktop/Githubs/CelestiaSingsOfFate/CelestiaSingsOfFate/Intermediate/Build/Win64/x64/UnrealEditor/Development/CelestiaSingsOfFate/Module.CelestiaSingsOfFate.2.cpp.obj"
+"C:/Users/violanteagus/Desktop/Githubs/CelestiaSingsOfFate/CelestiaSingsOfFate/Intermediate/Build/Win64/x64/UnrealEditor/Development/CelestiaSingsOfFate/Default.rc2.res"
+/OUT:"C:/Users/violanteagus/Desktop/Githubs/CelestiaSingsOfFate/CelestiaSingsOfFate/Intermediate/Build/Win64/x64/UnrealEditor/Development/CelestiaSingsOfFate/UnrealEditor-CelestiaSingsOfFate.lib"
