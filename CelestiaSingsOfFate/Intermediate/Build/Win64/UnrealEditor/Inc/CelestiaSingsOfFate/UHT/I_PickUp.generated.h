@@ -18,7 +18,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 // ********** Begin Interface UI_PickUp ************************************************************
 #define FID_Users_violanteagus_Desktop_Githubs_CelestiaSingsOfFate_CelestiaSingsOfFate_Source_CelestiaSingsOfFate_Public_Interfaces_I_PickUp_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
-	virtual void PickUp_Implementation(int32 Amount, const FString& ItemName) {}; \
+	virtual void PickUp_Implementation(int32 Amount, FString& ItemName) {}; \
 	DECLARE_FUNCTION(execPickUp);
 
 
@@ -62,7 +62,7 @@ protected: \
 public: \
 	typedef UI_PickUp UClassType; \
 	typedef II_PickUp ThisClass; \
-	static void Execute_PickUp(UObject* O, int32 Amount, const FString& ItemName); \
+	static void Execute_PickUp(UObject* O, int32 Amount, FString& ItemName); \
 	virtual UObject* _getUObject() const { return nullptr; }
 
 

@@ -30,7 +30,11 @@
 		"Module.CelestiaSingsOfFate.2.cpp.obj": [
 			"EnvQueryContext_Player.gen.cpp.obj",
 			"ICoin.gen.cpp.obj",
+			"Inventory.gen.cpp.obj",
+			"InventoryEntry.gen.cpp.obj",
+			"InventoryWidget.gen.cpp.obj",
 			"ItemBase.gen.cpp.obj",
+			"ItemDatabase.gen.cpp.obj",
 			"I_PickUp.gen.cpp.obj",
 			"PlatformingCharacter.gen.cpp.obj",
 			"PlatformingGameMode.gen.cpp.obj",
@@ -53,9 +57,13 @@
 			"CelestiaSingsOfFateCharacter.cpp.obj",
 			"CelestiaSingsOfFateGameMode.cpp.obj",
 			"CelestiaSingsOfFatePlayerController.cpp.obj",
+			"Inventory.cpp.obj",
 			"I_PickUp.cpp.obj",
-			"ICoin.cpp.obj",
+			"ItemDatabase.cpp.obj",
+			"InventoryEntry.cpp.obj",
+			"InventoryWidget.cpp.obj",
 			"ItemBase.cpp.obj",
+			"ICoin.cpp.obj",
 			"CombatAIController.cpp.obj",
 			"CombatEnemy.cpp.obj",
 			"CombatEnemySpawner.cpp.obj",
@@ -77,7 +85,9 @@
 			"CombatDamageable.cpp.obj",
 			"CombatLifeBar.cpp.obj",
 			"AnimNotify_EndDash.cpp.obj",
-			"PlatformingCharacter.cpp.obj",
+			"PlatformingCharacter.cpp.obj"
+		],
+		"Module.CelestiaSingsOfFate.3.cpp.obj": [
 			"PlatformingGameMode.cpp.obj",
 			"PlatformingPlayerController.cpp.obj",
 			"SideScrollingAIController.cpp.obj",
@@ -89,9 +99,7 @@
 			"SideScrollingSoftPlatform.cpp.obj",
 			"SideScrollingInteractable.cpp.obj",
 			"SideScrollingCameraManager.cpp.obj",
-			"SideScrollingCharacter.cpp.obj"
-		],
-		"Module.CelestiaSingsOfFate.3.cpp.obj": [
+			"SideScrollingCharacter.cpp.obj",
 			"SideScrollingGameMode.cpp.obj",
 			"SideScrollingPlayerController.cpp.obj",
 			"SideScrollingUI.cpp.obj"

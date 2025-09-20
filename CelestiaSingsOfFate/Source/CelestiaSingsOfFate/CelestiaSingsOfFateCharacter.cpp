@@ -4,6 +4,8 @@
 #include "Engine/LocalPlayer.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
+#include "Inventory/Widgets/InventoryWidget.h"
+#include "Inventory/Database/ItemDatabase.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "GameFramework/Controller.h"
@@ -11,6 +13,7 @@
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
 #include "CelestiaSingsOfFate.h"
+#include "Items/ICoin.h"
 
 ACelestiaSingsOfFateCharacter::ACelestiaSingsOfFateCharacter()
 {
@@ -50,7 +53,9 @@ ACelestiaSingsOfFateCharacter::ACelestiaSingsOfFateCharacter()
 	// are set in the derived blueprint asset named ThirdPersonCharacter (to avoid direct content references in C++)
 }
 
-void ACelestiaSingsOfFateCharacter::PickUp_Implementation(int32 Amount, FString ItemName)
+
+
+void ACelestiaSingsOfFateCharacter::PickUp_Implementation(int32 Amount, FString& ItemName)
 {
 	Coins += Amount;
 	if (GEngine)
@@ -75,6 +80,8 @@ void ACelestiaSingsOfFateCharacter::SetupPlayerInputComponent(UInputComponent* P
 
 		// Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ACelestiaSingsOfFateCharacter::Look);
+
+
 	}
 	else
 	{
@@ -141,3 +148,8 @@ void ACelestiaSingsOfFateCharacter::DoJumpEnd()
 	// signal the character to stop jumping
 	StopJumping();
 }
+
+
+
+
+

@@ -21,6 +21,6 @@ class CELESTIASINGSOFFATE_API II_PickUp
 public:
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Pick Up")
-	void PickUp(int32 Amount, FString ItemName);
+	void PickUp(int32 Amount, FString& ItemName);
 
 };

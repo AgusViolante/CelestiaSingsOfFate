@@ -6,11 +6,15 @@
 #include "GameFramework/Character.h"
 #include "Interfaces/I_PickUp.h"
 #include "Logging/LogMacros.h"
+#include "Private/Inventory/Database/ItemDatabase.h"
 #include "CelestiaSingsOfFateCharacter.generated.h"
 
 class USpringArmComponent;
 class UCameraComponent;
 class UInputAction;
+class UInputMappingContext;
+class UInventoryWidget;
+
 struct FInputActionValue;
 
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
@@ -50,7 +54,17 @@ protected:
 	UPROPERTY(EditAnywhere, Category="Input")
 	UInputAction* MouseLookAction;
 
-	
+	UPROPERTY(EditAnywhere, Category="Input")
+	UInputAction* InteractAction;
+	UPROPERTY(EditAnywhere, Category="Input")
+	UInputAction* InventoryAction;
+
+	UPROPERTY(EditAnywhere, Category="Input")
+	UInputMappingContext* BaseMappingContext;
+
+
+
+
 
 public:
 
@@ -58,7 +72,7 @@ public:
 	ACelestiaSingsOfFateCharacter();
 
 	//Interface
-	virtual void PickUp_Implementation(int32 Amount, FString ItemName) override;
+	virtual void PickUp_Implementation(int32 Amount, FString& ItemName) override;
 
 	//Variables
 	int32 Coins = 0;
@@ -94,6 +108,7 @@ public:
 	/** Handles jump pressed inputs from either controls or UI interfaces */
 	UFUNCTION(BlueprintCallable, Category="Input")
 	virtual void DoJumpEnd();
+
 
 public:
 

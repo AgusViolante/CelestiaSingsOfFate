@@ -24,12 +24,12 @@ struct I_PickUp_eventPickUp_Parms
 	int32 Amount;
 	FString ItemName;
 };
-void II_PickUp::PickUp(int32 Amount, const FString& ItemName)
+void II_PickUp::PickUp(int32 Amount, FString& ItemName)
 {
 	check(0 && "Do not directly call Event functions in Interfaces. Call Execute_PickUp instead.");
 }
 static FName NAME_UI_PickUp_PickUp = FName(TEXT("PickUp"));
-void II_PickUp::Execute_PickUp(UObject* O, int32 Amount, const FString& ItemName)
+void II_PickUp::Execute_PickUp(UObject* O, int32 Amount, FString& ItemName)
 {
 	check(O != NULL);
 	check(O->GetClass()->ImplementsInterface(UI_PickUp::StaticClass()));
@@ -40,6 +40,7 @@ void II_PickUp::Execute_PickUp(UObject* O, int32 Amount, const FString& ItemName
 		Parms.Amount=Amount;
 		Parms.ItemName=ItemName;
 		O->ProcessEvent(Func, &Parms);
+		ItemName=Parms.ItemName;
 	}
 	else if (auto I = (II_PickUp*)(O->GetNativeInterfaceAddress(UI_PickUp::StaticClass())))
 	{
@@ -60,13 +61,13 @@ struct Z_Construct_UFunction_UI_PickUp_PickUp_Statics
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UI_PickUp_PickUp_Statics::NewProp_Amount = { "Amount", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(I_PickUp_eventPickUp_Parms, Amount), METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UI_PickUp_PickUp_Statics::NewProp_ItemName = { "ItemName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(I_PickUp_eventPickUp_Parms, ItemName), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UI_PickUp_PickUp_Statics::NewProp_ItemName = { "ItemName", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(I_PickUp_eventPickUp_Parms, ItemName), METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UI_PickUp_PickUp_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UI_PickUp_PickUp_Statics::NewProp_Amount,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UI_PickUp_PickUp_Statics::NewProp_ItemName,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UI_PickUp_PickUp_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UI_PickUp_PickUp_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_UI_PickUp, nullptr, "PickUp", Z_Construct_UFunction_UI_PickUp_PickUp_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UI_PickUp_PickUp_Statics::PropPointers), sizeof(I_PickUp_eventPickUp_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UI_PickUp_PickUp_Statics::Function_MetaDataParams), Z_Construct_UFunction_UI_PickUp_PickUp_Statics::Function_MetaDataParams)},  };
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UI_PickUp_PickUp_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_UI_PickUp, nullptr, "PickUp", Z_Construct_UFunction_UI_PickUp_PickUp_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UI_PickUp_PickUp_Statics::PropPointers), sizeof(I_PickUp_eventPickUp_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C420C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UI_PickUp_PickUp_Statics::Function_MetaDataParams), Z_Construct_UFunction_UI_PickUp_PickUp_Statics::Function_MetaDataParams)},  };
 static_assert(sizeof(I_PickUp_eventPickUp_Parms) < MAX_uint16);
 UFunction* Z_Construct_UFunction_UI_PickUp_PickUp()
 {
@@ -80,10 +81,10 @@ UFunction* Z_Construct_UFunction_UI_PickUp_PickUp()
 DEFINE_FUNCTION(II_PickUp::execPickUp)
 {
 	P_GET_PROPERTY(FIntProperty,Z_Param_Amount);
-	P_GET_PROPERTY(FStrProperty,Z_Param_ItemName);
+	P_GET_PROPERTY_REF(FStrProperty,Z_Param_Out_ItemName);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	P_THIS->PickUp_Implementation(Z_Param_Amount,Z_Param_ItemName);
+	P_THIS->PickUp_Implementation(Z_Param_Amount,Z_Param_Out_ItemName);
 	P_NATIVE_END;
 }
 // ********** End Interface UI_PickUp Function PickUp **********************************************
@@ -135,7 +136,7 @@ struct Z_Construct_UClass_UI_PickUp_Statics
 #endif // WITH_METADATA
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_UI_PickUp_PickUp, "PickUp" }, // 889294379
+		{ &Z_Construct_UFunction_UI_PickUp_PickUp, "PickUp" }, // 3594581653
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -179,10 +180,10 @@ DEFINE_VTABLE_PTR_HELPER_CTOR(UI_PickUp);
 struct Z_CompiledInDeferFile_FID_Users_violanteagus_Desktop_Githubs_CelestiaSingsOfFate_CelestiaSingsOfFate_Source_CelestiaSingsOfFate_Public_Interfaces_I_PickUp_h__Script_CelestiaSingsOfFate_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UI_PickUp, UI_PickUp::StaticClass, TEXT("UI_PickUp"), &Z_Registration_Info_UClass_UI_PickUp, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UI_PickUp), 3967459248U) },
+		{ Z_Construct_UClass_UI_PickUp, UI_PickUp::StaticClass, TEXT("UI_PickUp"), &Z_Registration_Info_UClass_UI_PickUp, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UI_PickUp), 2987182483U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_violanteagus_Desktop_Githubs_CelestiaSingsOfFate_CelestiaSingsOfFate_Source_CelestiaSingsOfFate_Public_Interfaces_I_PickUp_h__Script_CelestiaSingsOfFate_366445218(TEXT("/Script/CelestiaSingsOfFate"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_violanteagus_Desktop_Githubs_CelestiaSingsOfFate_CelestiaSingsOfFate_Source_CelestiaSingsOfFate_Public_Interfaces_I_PickUp_h__Script_CelestiaSingsOfFate_598628337(TEXT("/Script/CelestiaSingsOfFate"),
 	Z_CompiledInDeferFile_FID_Users_violanteagus_Desktop_Githubs_CelestiaSingsOfFate_CelestiaSingsOfFate_Source_CelestiaSingsOfFate_Public_Interfaces_I_PickUp_h__Script_CelestiaSingsOfFate_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_violanteagus_Desktop_Githubs_CelestiaSingsOfFate_CelestiaSingsOfFate_Source_CelestiaSingsOfFate_Public_Interfaces_I_PickUp_h__Script_CelestiaSingsOfFate_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
