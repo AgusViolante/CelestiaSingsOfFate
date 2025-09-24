@@ -8,6 +8,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "GameFramework/Controller.h"
 #include "EnhancedInputComponent.h"
+#include "Componentes/ExpComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
 #include "CelestiaSingsOfFate.h"
@@ -52,6 +53,8 @@ ACelestiaSingsOfFateCharacter::ACelestiaSingsOfFateCharacter()
 	
 	//Components
 	Health = CreateDefaultSubobject<UHealthComponent>(TEXT("HealthComponent"));
+
+	Exp = CreateDefaultSubobject<UExpComponent>(TEXT("ExpComponent"));
 }
 
 

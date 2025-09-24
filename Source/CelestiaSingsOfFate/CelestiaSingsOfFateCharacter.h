@@ -7,6 +7,7 @@
 #include "Interfaces/I_PickUp.h"
 #include "Logging/LogMacros.h"
 #include "Componentes/HealthComponent.h"
+#include "Componentes/ExpComponent.h"
 #include "CelestiaSingsOfFateCharacter.generated.h"
 
 class USpringArmComponent;
@@ -68,6 +69,9 @@ public:
 	//Componentes
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Components")
 	UHealthComponent* Health;
+
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+	UExpComponent* Exp;
 
 	//Variables
 	
