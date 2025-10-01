@@ -97,6 +97,10 @@ void ACelestiaSingsOfFateCharacter::SetupPlayerInputComponent(UInputComponent* P
 		//Using
 		EnhancedInputComponent->BindAction(Using, ETriggerEvent::Started, this, &ACelestiaSingsOfFateCharacter::UsePotion);
 
+		//Sprint
+		EnhancedInputComponent->BindAction(Sprint, ETriggerEvent::Started, this, &ACelestiaSingsOfFateCharacter::Sprinting);
+		EnhancedInputComponent->BindAction(Sprint, ETriggerEvent::Completed, this, &ACelestiaSingsOfFateCharacter::StopSprinting);
+
 
 	}
 	else
@@ -205,6 +209,18 @@ void ACelestiaSingsOfFateCharacter::UsePotion()
 		}
 	}
 }
+
+void ACelestiaSingsOfFateCharacter::Sprinting()
+{
+	GetCharacterMovement()->MaxWalkSpeed = 1000.f;
+}
+
+void ACelestiaSingsOfFateCharacter::StopSprinting()
+{
+	GetCharacterMovement()->MaxWalkSpeed = 500.f;
+}
+
+
 
 
 

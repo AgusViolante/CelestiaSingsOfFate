@@ -55,6 +55,8 @@ protected:
 	UPROPERTY(EditAnywhere, Category="Input")
 	UInputAction* Using;
 
+	UPROPERTY(EditAnywhere, Category="Input")
+	UInputAction* Sprint;
 
 public:
 
@@ -117,6 +119,16 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Input")
 	virtual void UsePotion();
 
+	UFUNCTION(BlueprintCallable, Category="Input")
+	virtual void Sprinting();
+
+	UFUNCTION(BlueprintCallable, Category="Input")
+	virtual void StopSprinting();
+
+
+
+
+	
 
 public:
 
