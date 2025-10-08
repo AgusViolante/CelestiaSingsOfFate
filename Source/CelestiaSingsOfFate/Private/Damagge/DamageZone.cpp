@@ -3,7 +3,7 @@
 
 #include "Damagge/DamageZone.h"
 #include "Components/BoxComponent.h"
-#include "Componentes/HealthComponent.h"
+#include "Components/HealthComponent.h"
 #include "interfaces/I_PickUp.h"
 
 // Sets default values

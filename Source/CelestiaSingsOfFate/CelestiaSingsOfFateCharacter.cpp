@@ -1,18 +1,26 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "CelestiaSingsOfFateCharacter.h"
+#include "Engine/World.h"
 #include "Engine/LocalPlayer.h"
+#include "Engine/Engine.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "GameFramework/Controller.h"
+#include "GameFramework/PlayerController.h"
 #include "EnhancedInputComponent.h"
 #include "Componentes/ExpComponent.h"
+#include "Components/HealthComponent.h" 
+#include "Components/DashComponent.h" 
 #include "EnhancedInputSubsystems.h"
+#include "TimerManager.h"
 #include "InputActionValue.h"
 #include "CelestiaSingsOfFate.h"
 #include "Items/ICoin.h"
+
+DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
 ACelestiaSingsOfFateCharacter::ACelestiaSingsOfFateCharacter()
 {
@@ -52,32 +60,37 @@ ACelestiaSingsOfFateCharacter::ACelestiaSingsOfFateCharacter()
 	// are set in the derived blueprint asset named ThirdPersonCharacter (to avoid direct content references in C++)
 	
 	//Components
-	Health = CreateDefaultSubobject<UHealthComponent>(TEXT("HealthComponent"));
+	HealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("HealthComponent"));
 
 	Exp = CreateDefaultSubobject<UExpComponent>(TEXT("ExpComponent"));
+
+	DashComponent = CreateDefaultSubobject<UDashComponent>(TEXT("DashComponent"));
+	DashComponent->DashStrength = 2000.f;
+	DashComponent->DashCooldown = 1.0f;
+	DashComponent->bUseTeleportDash = false;
 }
 
-
-
-void ACelestiaSingsOfFateCharacter::PickUp_Implementation(int32 Amount, FString& ItemName)
+void ACelestiaSingsOfFateCharacter::BeginPlay()
 {
-	Coins += Amount;
-	if (GEngine)
+
+	Super::BeginPlay();
+
+
+	if (IMC_Default)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, ItemName + FString::Printf(TEXT (": ")) + FString::FromInt(Coins));
+		if (APlayerController* PC = Cast<APlayerController>(GetController()))
+		{
+			if (ULocalPlayer* LP = PC->GetLocalPlayer())
+			{
+				if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(LP))
+				{
+					Subsystem->AddMappingContext(IMC_Default, 0);
+				}
+			}
+		}
 	}
+
 }
-
-void ACelestiaSingsOfFateCharacter::AddPotion_Implementation(int Amount)
-{
-	Potion += Amount;
-	if (GEngine)
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, FString::FromInt(Potion));
-	}
-}
-
-
 void ACelestiaSingsOfFateCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	// Set up action bindings
@@ -95,12 +108,23 @@ void ACelestiaSingsOfFateCharacter::SetupPlayerInputComponent(UInputComponent* P
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ACelestiaSingsOfFateCharacter::Look);
 
 		//Using
-		EnhancedInputComponent->BindAction(Using, ETriggerEvent::Started, this, &ACelestiaSingsOfFateCharacter::UsePotion);
 
 		//Sprint
 		EnhancedInputComponent->BindAction(Sprint, ETriggerEvent::Started, this, &ACelestiaSingsOfFateCharacter::Sprinting);
 		EnhancedInputComponent->BindAction(Sprint, ETriggerEvent::Completed, this, &ACelestiaSingsOfFateCharacter::StopSprinting);
 
+		if (IA_Heal)
+		{
+
+			EnhancedInputComponent->BindAction(IA_Heal, ETriggerEvent::Started, this, &ACelestiaSingsOfFateCharacter::Debug_UsePotionInput);
+
+		}
+		if (DashComponent && DashComponent->DashInputAction)
+		{
+			DashComponent->RegisterMappingContext();
+			DashComponent->BindInput(EnhancedInputComponent);
+
+		}
 
 	}
 	else
@@ -169,47 +193,95 @@ void ACelestiaSingsOfFateCharacter::DoJumpEnd()
 	StopJumping();
 }
 
-void ACelestiaSingsOfFateCharacter::UsePotion()
+void ACelestiaSingsOfFateCharacter::Debug_HealInput()
 {
-	if (Health && (Potion > 0))
+	if (HealthComponent)
 	{
-		
-		if (Health->Health(static_cast<float>(CuraCharacter)))
-		{
-			Potion--;
+		HealthComponent->Heal(25.f);
 
-			if (GEngine)
-			{
-				GEngine->AddOnScreenDebugMessage(
-					-1, 3.0f, FColor::Green,
-					FString::Printf(TEXT("Usaste una poción. Tenes de vida" )
-				));
-			}
-		}
-		else
-		{
-			
-			if (GEngine)
-			{
-				GEngine->AddOnScreenDebugMessage(
-					-1, 3.0f, FColor::Yellow,
-					TEXT("La vida ya está al máximo. No se gastó la poción.")
-				);
-			}
-		}
 	}
-	else
+}
+void ACelestiaSingsOfFateCharacter::AddPotion(int32 Amount)
+{
+	PotionCount += Amount;
+
+	if (GEngine)
 	{
-		if (GEngine)
-		{
-			GEngine->AddOnScreenDebugMessage(
-				-1, 3.0f, FColor::Yellow,
-				TEXT("No hay pociones o componente de salud no disponible.")
-			);
-		}
+		const FString Msg = FString::Printf(TEXT("Pociones: %d"), PotionCount);
+		GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Green, Msg);
 	}
 }
 
+bool ACelestiaSingsOfFateCharacter::TryUsePotion(int32 NumPotions)
+{
+	if (NumPotions <= 0) return false;
+	if (!HealthComponent)
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Yellow, TEXT("No HealthComponent found"));
+		return false;
+	}
+
+	if (IsValid(HealthComponent) && HealthComponent->IsDead())
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, TEXT("No se puede curar: estas muerto"));
+		return false;
+	}
+
+	if (FMath::IsNearlyEqual(HealthComponent->Health, HealthComponent->MaxHealth))
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Yellow, TEXT("Ya tenes la vida al maximo"));
+		return false;
+	}
+
+	if (PotionCount <= 0)
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Yellow, TEXT("No hay pociones disponibles"));
+		return false;
+	}
+
+
+	const int32 Use = FMath::Clamp(NumPotions, 1, PotionCount);
+
+	const float BeforeHP = HealthComponent->Health;
+	const float AmountToHeal = Use * HealPerPotion;
+
+	HealthComponent->Heal(AmountToHeal);
+
+	PotionCount -= Use;
+
+	const float AfterHP = HealthComponent->Health;
+
+
+	FString AmountStr = FString::SanitizeFloat(AmountToHeal, 1);
+	FString BeforeStr = FString::SanitizeFloat(BeforeHP, 1);
+	FString AfterStr = FString::SanitizeFloat(AfterHP, 1);
+	FString UseStr = FString::FromInt(Use);
+	FString LeftStr = FString::FromInt(PotionCount);
+
+
+	const FString Msg = FString::Format(
+		TEXT("Usaste pocion: +{1} HP ({2} -> {3}). Pociones restantes: {4}"),
+		{ UseStr, AmountStr, BeforeStr, AfterStr, LeftStr }
+	);
+
+	if (GEngine)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Green, Msg);
+	}
+
+	UE_LOG(LogTemplateCharacter, Log, TEXT("%s"), *Msg);
+
+	return true;
+}
+bool ACelestiaSingsOfFateCharacter::UseOnePotion()
+{
+	return TryUsePotion(1);
+}
+
+void ACelestiaSingsOfFateCharacter::Debug_UsePotionInput()
+{
+	UseOnePotion();
+}
 void ACelestiaSingsOfFateCharacter::Sprinting()
 {
 	GetCharacterMovement()->MaxWalkSpeed = 1000.f;

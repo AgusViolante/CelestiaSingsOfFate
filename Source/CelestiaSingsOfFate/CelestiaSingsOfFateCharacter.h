@@ -4,16 +4,20 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
-#include "Interfaces/I_PickUp.h"
 #include "Logging/LogMacros.h"
-#include "Componentes/HealthComponent.h"
 #include "Componentes/ExpComponent.h"
-#include "CelestiaSingsOfFateCharacter.generated.h"
+
 
 class USpringArmComponent;
 class UCameraComponent;
 class UInputAction;
+class UInputMappingContext;
+class UHealthComponent;
+class UDashComponent;
 struct FInputActionValue;
+struct FInputActionInstance;
+
+#include "CelestiaSingsOfFateCharacter.generated.h"
 
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
 
@@ -22,7 +26,7 @@ DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
  *  Implements a controllable orbiting camera
  */
 UCLASS(abstract)
-class ACelestiaSingsOfFateCharacter : public ACharacter, public II_PickUp
+class ACelestiaSingsOfFateCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
@@ -58,19 +62,28 @@ protected:
 	UPROPERTY(EditAnywhere, Category="Input")
 	UInputAction* Sprint;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Input")
+	UInputAction* IA_Dash;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Input")
+	UInputAction* IA_Heal;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Input")
+	UInputMappingContext* IMC_Default;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Dash")
+	UDashComponent* DashComponent;
 public:
 
 	/** Constructor */
 	ACelestiaSingsOfFateCharacter();
 
 	//Interface
-	virtual void PickUp_Implementation(int32 Amount, FString& ItemName) override;
 
-	virtual void AddPotion_Implementation(int Potion);
 
 	//Componentes
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Components")
-	UHealthComponent* Health;
+	UHealthComponent* HealthComponent;
 
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	UExpComponent* Exp;
@@ -84,9 +97,29 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int CuraCharacter = 5.0f;
 
+	UFUNCTION()
+	void Debug_HealInput();
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Inventory")
+	int32 PotionCount = 0;
+
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void AddPotion(int32 Amount);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Potion")
+	float HealPerPotion = 25.f;
+
+	UFUNCTION(BlueprintCallable, Category = "Potion")
+	bool TryUsePotion(int32 NumPotions = 1);
+
+	UFUNCTION(BlueprintCallable, Category = "Potion")
+	bool UseOnePotion();
+
+	UFUNCTION()
+	void Debug_UsePotionInput();
 
 protected:
-
+	virtual void BeginPlay() override;
 	/** Initialize input action bindings */
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
@@ -115,9 +148,6 @@ public:
 	/** Handles jump pressed inputs from either controls or UI interfaces */
 	UFUNCTION(BlueprintCallable, Category="Input")
 	virtual void DoJumpEnd();
-
-	UFUNCTION(BlueprintCallable, Category="Input")
-	virtual void UsePotion();
 
 	UFUNCTION(BlueprintCallable, Category="Input")
 	virtual void Sprinting();
