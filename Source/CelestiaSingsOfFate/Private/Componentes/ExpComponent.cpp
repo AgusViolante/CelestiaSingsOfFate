@@ -15,7 +15,7 @@ UExpComponent::UExpComponent()
 
 float UExpComponent::ExpProxLVL(int32 Level)
 {
-	return (Lvl - 1) * 0.02 + 0.1 * pow((Lvl - 1 + 90.3), 2);
+	return (((Lvl - 1) * 0.02) + 0.1) * pow((Lvl - 1 + 89.3), 2);
 }
 
 void UExpComponent::RecibeExp(float amount)
