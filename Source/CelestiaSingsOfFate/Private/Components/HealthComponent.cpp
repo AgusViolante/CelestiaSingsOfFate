@@ -11,8 +11,8 @@ UHealthComponent::UHealthComponent()
 {
     PrimaryComponentTick.bCanEverTick = false;
 
-    MaxHealth = 100.f;
-    Health = MaxHealth;
+    MaxHealth = 200.f;
+    Health = 200.f;
 
 }
 
