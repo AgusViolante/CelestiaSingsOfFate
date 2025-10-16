@@ -232,7 +232,7 @@ void AEnemyCharacter::ApplyDamage()
     {
         const float Amount = DamagePerSecond * DamageInterval;
 
-        HealthComp->TakeDamage(Amount);
+        HealthComp->ReciveDamage(Amount);
 
         if (GEngine)
         {
