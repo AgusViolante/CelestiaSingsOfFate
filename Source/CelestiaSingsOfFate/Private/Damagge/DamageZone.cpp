@@ -40,7 +40,7 @@ void ADamageZone::NotifyActorBeginOverlap(AActor* OtherActor)
 
 	if (UHealthComponent* Salud = OtherActor->FindComponentByClass<UHealthComponent>())
 	{
-		Salud->TakeDamage(DamageCharacter);
+		Salud->ReciveDamage(DamageCharacter);
 	}
 }
 

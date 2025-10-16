@@ -48,7 +48,7 @@ void UHealthComponent::BeginPlay()
     InitializeAfterSpawn(bAutoRegen, RegenDelaySeconds, RegenPerSecond, RegenTickInterval);
 }
 
-void UHealthComponent::TakeDamage(float Amount)
+void UHealthComponent::ReciveDamage(float Amount)
 {
     if (Amount <= 0.f) return;
     if (IsDead()) return;

@@ -38,7 +38,7 @@ public:
     FOnDeathSignature OnDeath;
 
     UFUNCTION(BlueprintCallable, Category="Health")
-    void TakeDamage(float Amount);
+    void ReciveDamage(float Amount);
 
     UFUNCTION(BlueprintCallable, Category="Health")
     void Heal(float Amount);
